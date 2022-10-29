@@ -40,10 +40,12 @@ public class LoginController {
             User tempUser = objectMapper.readValue(responseEntity.getBody(), User.class);
             user.setLogin(tempUser.getLogin());
             user.setToken(tempUser.getToken());
+            user.setName(tempUser.getName());
+            user.setInfo(tempUser.getInfo());
+            user.setStatus(tempUser.getStatus());
         } catch (JsonProcessingException error) {
             System.err.println(error.getMessage());
         }
-
         return "redirect:/account";
     }
 

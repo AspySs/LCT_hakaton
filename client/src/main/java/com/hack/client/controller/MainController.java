@@ -21,8 +21,7 @@ public class MainController {
     @GetMapping("/account")
     public String getAccountPage(Model model) {
         model.addAttribute("title", "Account");
-        model.addAttribute("login", user.getLogin());
-        model.addAttribute("token", user.getToken());
+        model.addAttribute("user", user);
         return "account";
     }
 

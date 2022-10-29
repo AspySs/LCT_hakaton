@@ -33,6 +33,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/auth/login").permitAll()
+                .antMatchers("/user/update/{login}").permitAll()
+                .antMatchers("/user/find/{login}").permitAll()
                 .antMatchers("/ideas/find/all").permitAll()
                 .antMatchers("/ideas/find/byTag/{tag}").permitAll()
                 .antMatchers("/ideas/find/bySphere/{sphere}").permitAll()

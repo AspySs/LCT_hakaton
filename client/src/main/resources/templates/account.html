@@ -13,8 +13,15 @@
 <div class="container mt-3">
     <h1 th:text="${title}"/>
     <div class="alert alert-info mt-2">
-        <h3 th:text="'Username: ' + ${login}"/>
+        <h3 th:text="'Username: ' + ${user.name}"/>
+        <br>
+        <h3 th:text="'User_info: ' + ${user.info}"/>
+        <br>
+        <h3 th:text="'User_status: ' + ${user.status}"/>
         <!--<h3  th:text="'Token: ' + ${token}"/>-->
+    </div>
+    <div class="col-md-auto">
+        <a th:href="'/user/update/' + ${user.login}" th:text="'Add information about me'" class="btn btn-warning"/>
     </div>
 </div>
 </body>

@@ -5,6 +5,11 @@ public class User {
     private String login;
     private String token;
 
+    private String name;
+
+    private String info;
+    private String status;
+
     public User() {
     }
 
@@ -29,4 +34,11 @@ public class User {
     public void setToken(String token) {
         this.token = token;
     }
+
+    public String getName(){return name;}
+    public String getInfo(){return info;}
+    public void setInfo(String info){this.info = info;}
+    public void setName(String name){this.name = name;}
+    public String getStatus(){return status;}
+    public void setStatus(String status){this.status = status;}
 }

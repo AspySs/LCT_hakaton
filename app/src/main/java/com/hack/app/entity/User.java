@@ -22,6 +22,15 @@ public class User implements UserDetails {
 
     private String password;
 
+    @Column(name="name", nullable = true)
+    private String name;
+
+    @Column(name="info", nullable = true)
+    private String info;
+
+    @Column(name="status", nullable = true)
+    private String status;
+
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles = new ArrayList<>();
 
@@ -42,6 +51,14 @@ public class User implements UserDetails {
     public List<String> getRoles() {
         return roles;
     }
+
+    public String getName(){return name;}
+    public String getInfo(){return info;}
+    public String getStatus(){return status;}
+    public void setInfo(String info){this.info = info;}
+    public void setName(String name){this.name = name;}
+    public void setStatus(String status){this.status = status;}
+
 
     @Override
     public String getUsername() {
