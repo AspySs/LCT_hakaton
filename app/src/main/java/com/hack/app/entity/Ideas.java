@@ -23,10 +23,16 @@ public class Ideas {
     @Column(name = "tag", nullable = true)
     private String tag;
 
-    @Column(name = "descript", nullable = false)
+    @Column(name = "descript", nullable = true)
     private String Descript;
 
     @Column(name = "status", nullable = false)
     private String status;
+
+    @Column(name = "project", nullable = false)
+    private String project;
+
+    @Column(name = "task", nullable = false)
+    private String task;
 
 }

@@ -50,6 +50,18 @@ public class AuthController {
             model.put("name", usr.getName());
             model.put("info", usr.getInfo());
             model.put("status", usr.getStatus());
+            model.put("birth_date", usr.getBirth_date());
+            model.put("country", usr.getCountry());
+            model.put("city", usr.getCity());
+            model.put("grajd", usr.getGrajd());
+            model.put("gender", usr.getGender());
+            model.put("contact", usr.getContact());
+            model.put("education", usr.getEducation());
+            model.put("busyness", usr.getBusyness());
+            model.put("skill", usr.getSkill());
+            model.put("achievements", usr.getAchievements());
+            model.put("command", usr.isCommand());
+            model.put("role", usr.getRole());
             return ResponseEntity.ok(model);
         }else{
             Map<Object, Object> model = new HashMap<>();

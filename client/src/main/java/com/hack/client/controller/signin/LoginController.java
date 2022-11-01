@@ -43,6 +43,19 @@ public class LoginController {
             user.setName(tempUser.getName());
             user.setInfo(tempUser.getInfo());
             user.setStatus(tempUser.getStatus());
+            user.setBirth_date(tempUser.getBirth_date());
+            user.setCountry(tempUser.getCountry());
+            user.setCity(tempUser.getCity());
+            user.setGrajd(tempUser.getGrajd());
+            user.setGender(tempUser.isGender());
+            user.setContact(tempUser.getContact());
+            user.setEducation(tempUser.getEducation());
+            user.setBusyness(tempUser.getBusyness());
+            user.setExpWork(tempUser.getExpWork());
+            user.setSkill(tempUser.getSkill());
+            user.setAchievements(tempUser.getAchievements());
+            user.setCommand(tempUser.isCommand());
+            user.setRole(tempUser.getRole());
         } catch (JsonProcessingException error) {
             System.err.println(error.getMessage());
         }

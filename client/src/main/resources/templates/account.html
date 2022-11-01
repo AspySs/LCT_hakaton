@@ -18,6 +18,31 @@
         <h3 th:text="'User_info: ' + ${user.info}"/>
         <br>
         <h3 th:text="'User_status: ' + ${user.status}"/>
+        <br>
+        <h3 th:text="'birth_date: ' + ${user.birth_date}"/>
+        <br>
+        <h3 th:text="'country: ' + ${user.country}"/>
+        <br>
+        <h3 th:text="'city: ' + ${user.city}"/>
+        <br>
+        <h3 th:text="'grajd: ' + ${user.grajd}"/>
+        <br>
+        <h3 th:if="${user.gender}" th:text="'gender: male'"/>
+        <h3 th:if="${!user.gender}" th:text="'gender: female'"/>
+        <br>
+        <h3 th:text="'education: ' + ${user.education}"/>
+        <br>
+        <h3 th:text="'busyness: ' + ${user.busyness}"/>
+        <br>
+        <h3 th:text="'expWork: ' + ${user.expWork}"/>
+        <br>
+        <h3 th:text="'skill: ' + ${user.skill}"/>
+        <br>
+        <h3 th:text="'achievements: ' + ${user.achievements}"/>
+        <br>
+        <h3 th:text="'command: ' + ${user.command}"/>
+        <br>
+        <h3 th:text="'role: ' + ${user.role}"/>
         <!--<h3  th:text="'Token: ' + ${token}"/>-->
     </div>
     <div class="col-md-auto">

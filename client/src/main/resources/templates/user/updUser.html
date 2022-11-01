@@ -23,6 +23,51 @@
     <input type="text" th:value="${user.status}" name="newStatus" th:placeholder="${user.status}"
            class="form-control" required><br>
 
+
+    birth_date:
+    <input type="date" th:value="${user.birth_date}" name="birth_date" th:placeholder="${user.birth_date}"
+           class="form-control" required><br>
+    country:
+    <input type="text" th:value="${user.country}" name="country" th:placeholder="${user.country}"
+           class="form-control" required><br>
+    city:
+    <input type="text" th:value="${user.city}" name="city" th:placeholder="${user.city}"
+           class="form-control" required><br>
+    Гражданство:
+    <input type="text" th:value="${user.grajd}" name="grajd" th:placeholder="${user.grajd}"
+           class="form-control" required><br>
+    gender:
+    man:
+    <input type="radio" value="true" name="gender"><br>
+    woman:
+    <input type="radio" value="false" name="gender"><br>
+    contact:
+    <input type="text" th:value="${user.contact}" name="contact" th:placeholder="${user.contact}"
+           class="form-control" required><br>
+    education:
+    <input type="text" th:value="${user.education}" name="education" th:placeholder="${user.education}"
+           class="form-control" required><br>
+    busyness:
+    <input type="text" th:value="${user.busyness}" name="busyness" th:placeholder="${user.busyness}"
+           class="form-control" required><br>
+    expWork:
+    <input type="text" th:value="${user.expWork}" name="expWork" th:placeholder="${user.expWork}"
+           class="form-control" required><br>
+    skill:
+    <input type="text" th:value="${user.skill}" name="skill" th:placeholder="${user.skill}"
+           class="form-control" required><br>
+    achievements:
+    <input type="text" th:value="${user.achievements}" name="achievements" th:placeholder="${user.achievements}"
+           class="form-control" required><br>
+    command:
+    with command:
+    <input type="radio" value="true" name="command"><br>
+    without command:
+    <input type="radio" value="false" name="command"><br>
+    role:
+    <input type="text" th:value="${user.role}" name="role" th:placeholder="${user.role}"
+           class="form-control" required><br>
+
     <button type="submit" class="btn btn-success">Edit</button>
   </form>
 </div>

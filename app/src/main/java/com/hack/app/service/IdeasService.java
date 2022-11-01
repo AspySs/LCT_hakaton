@@ -52,7 +52,7 @@ public class IdeasService {
     @Transactional
     @Modifying
     public Ideas add(Ideas idea){
-        if(!idea.getDescript().isEmpty() && !idea.getName().isEmpty() && !idea.getSphere().isEmpty() && !idea.getStatus().isEmpty()){
+        if(!idea.getName().isEmpty() && !idea.getStatus().isEmpty() && !idea.getProject().isEmpty() && !idea.getTask().isEmpty()){
             return repository.save(idea);
         }
         throw new IllegalArgumentException("One of labels are empty!");

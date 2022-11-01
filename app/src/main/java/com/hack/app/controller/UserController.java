@@ -2,6 +2,7 @@ package com.hack.app.controller;
 
 import com.hack.app.entity.User;
 import com.hack.app.service.UserService;
+import org.hibernate.type.BinaryType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class UserController {
     @PostMapping(value = "/update/{login}", consumes = "application/json", produces = "application/json")
     public ResponseEntity<User> update(@PathVariable("login") String login, @RequestBody User user){
         try{
-            service.update(user.getName(), user.getInfo(), user.getStatus(), login);
+            service.update(user.getName(), user.getInfo(), user.getStatus(), user.getBirth_date(), user.getCountry(), user.getCity(), user.getGrajd(), user.getGender(), user.getContact(), user.getEducation(), user.getBusyness(), user.getExpWork(), user.getSkill(), user.getAchievements(), user.isCommand(), user.getRole(), login);
         }catch (UsernameNotFoundException e){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }

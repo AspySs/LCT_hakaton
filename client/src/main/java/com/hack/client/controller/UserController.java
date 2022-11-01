@@ -45,14 +45,34 @@ public class UserController {
     @PostMapping("/user/update/{login}")
     public String updateUsr(@PathVariable("login") String login, @RequestParam("newName") String nName,
                             @RequestParam("newInfo") String nInfo, @RequestParam("newStatus") String nStatus,
-                            Model model) {
+                            @RequestParam("birth_date") String birth_date, @RequestParam("country") String country,
+                            @RequestParam("city") String city, @RequestParam("grajd") String grajd,
+                            @RequestParam("gender") boolean gender, @RequestParam("contact") String contact,
+                            @RequestParam("education") String education, @RequestParam("busyness") String busyness,
+                            @RequestParam("expWork") String expWork,
+                            @RequestParam("skill") String skill, @RequestParam("achievements") String achievements,
+                            @RequestParam("command") boolean command, @RequestParam("role") String role, Model model) {
+
         model.addAttribute("title", "User info Update");
         String url = "http://localhost:8081/user/update/" + login;
         String json = "{\n" +
+                "  \"login\": \""+login+"\",\n" +
                 "  \"name\": \""+nName+"\",\n" +
                 "  \"info\": \""+nInfo+"\",\n" +
                 "  \"status\": \""+nStatus+"\",\n" +
-                "  \"username\": \""+user.getLogin()+"\"\n" +
+                "  \"birth_date\": \""+birth_date+"\",\n" +
+                "  \"country\": \""+country+"\",\n" +
+                "  \"city\": \""+city+"\",\n" +
+                "  \"grajd\": \""+grajd+"\",\n" +
+                "  \"gender\": "+gender+",\n" +
+                "  \"contact\": \""+contact+"\",\n" +
+                "  \"education\": \""+education+"\",\n" +
+                "  \"busyness\": \""+busyness+"\",\n" +
+                "  \"expWork\": \""+expWork+"\",\n" +
+                "  \"skill\": \""+skill+"\",\n" +
+                "  \"achievements\": \""+achievements+"\",\n" +
+                "  \"command\": "+command+",\n" +
+                "  \"role\": \""+role+"\"\n" +
                 "}";
         postRequest(url, user.getToken(), json, HttpMethod.POST, MediaType.APPLICATION_JSON);
         return "redirect:/account";
