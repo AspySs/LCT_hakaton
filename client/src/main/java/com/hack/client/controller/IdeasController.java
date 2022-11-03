@@ -4,15 +4,19 @@ import com.hack.client.entity.Comments;
 import com.hack.client.entity.Ideas;
 import com.hack.client.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static com.hack.client.utils.Utils.getRequest;
+import static com.hack.client.utils.Utils.postRequest;
 
 @Controller
 public class IdeasController {
@@ -64,4 +68,32 @@ public class IdeasController {
         return "ideas/idea";
     }
 
+
+    @PostMapping("/ideas/add")
+    public String addIdea(@RequestParam("name") String name, @RequestParam("sphere") String sphere,
+                            @RequestParam("status") String status, @RequestParam("tag") String tag,
+                            @RequestParam("project") String project, @RequestParam("descript") String descript,
+                            @RequestParam("task") String task) {
+        String url = "http://localhost:8081/ideas/add";
+        String json = "{\n" +
+                "  \"name\": \""+name+"\",\n" +
+                "  \"sphere\": \""+sphere+"\",\n" +
+                "  \"tag\": \""+tag+"\",\n" +
+                "  \"status\": \""+status+"\",\n" +
+                "  \"project\": \""+project+"\",\n" +
+                "  \"task\": \""+task+"\",\n" +
+                "  \"descript\": \""+descript+"\"\n" +
+                "}";
+
+
+        postRequest(url, user.getToken(), json, HttpMethod.POST, MediaType.APPLICATION_JSON);
+        return "redirect:/ideas";
+    }
+
+    @GetMapping("/ideas/add")
+    public String addIdeaPage(Model model) {
+        model.addAttribute("title", "Add Idea");
+        model.addAttribute("token", user.getToken());
+        return "ideas/addIdea";
+    }
 }

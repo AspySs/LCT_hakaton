@@ -9,19 +9,23 @@ public class Ideas {
     private Integer id;
     private String name;
     private String sphere;
-    private String tag;
-    private String Descript;
     private String status;
+    private String tag;
+    private String project;
+    private String descript;
+    private String task;
+
 
     @Override
     public String toString() {
-        return "Charge{" +
-                "id=" + id +
+        return "Ideas{" +
                 ", name=" + name +
                 ", sphere=" + sphere +
                 ", tag=" + tag +
-                ", Descript=" + Descript +
+                ", descript=" + descript +
                 ", status=" + status +
+                ", project=" + project +
+                ", task=" + task +
                 '}';
     }
 
