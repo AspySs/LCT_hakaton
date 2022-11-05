@@ -1,32 +1,121 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="eng">
 <head>
-    <title th:text="${title}"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твоя Идея</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div th:insert="blocks/header :: header"></div>
 
-<div class="container mt-3">
-    <h1 th:text="${title}"/>
-    <div class="row">
-        <div class="col-md-auto">
-            <a th:href="'/ideas'" class="btn btn-warning" th:text="'Список идей'"/>
-        </div>
-        <div class="col-md-auto">
-            <a th:href="'/expenseitems'" class="btn btn-warning" th:text="'Expense Items'"/>
-        </div>
-        <div class="col-md-auto">
-            <a th:href="'/sales'" class="btn btn-warning" th:text="'Sales'"/>
-        </div>
-        <div class="col-md-auto">
-            <a th:href="'/warehouses'" class="btn btn-warning" th:text="'Warehouses'"/>
+
+
+<header class="header">
+    <div class="container">
+        <div class="header__wrapper">
+            <div class="header__block">
+                <a href="/" class="header__logo">
+                    <img src="img/Logo.svg" alt="">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <a href="/" class="nav_link">Главная страница</a>
+                <a href="/ideas" class="nav_link">Каталог идей</a>
+                <a href="/account" class="nav_link">Личный кабинет</a>
+            </nav>
+            <div class="header__block" th:if="not ${token}">
+                <nav class="login">
+                    <a href="/register" class="nav_login">Зарегистрироваться</a>
+                    <a href="/login" class="nav_login">Войти</a>
+                </nav>
+            </div>
+
+
         </div>
     </div>
-</div>
+</header>
+
+
+<section class="home__page">
+    <div class="container">
+        <div class="hp_tx1">Для кого мы?</div>
+        <div class="hp_tx2">Твоя Идея</div>
+        <div class="hp_tx3">измени мир своей идеей</div>
+        <div class="hp_tx4">Наша миссия - улучшить мир, соединяя людей, обладающих идеями, с теми, кто может помочь в ее реализации.</div>
+        <div class="hp_tx5">На нашей площадке собраны предприниматели с идеями создания продуктов, специалисты разных уровней, грантодатели и инвесторы.</div>
+        <div class="hp_tx5">Специалист может выбрать проект, над которым хочет работать.</div>
+        <div class="hp_tx5">Предприниматель - получить критику своей идеи, собрать команду специалистов, а наша команда поможет вам с подачей документов на грант!</div>
+
+        <div class="sec2">
+            <div class="box__left">
+                <div class="circle_busin">
+                    <img src="img/busin_hp.svg" class="busin_hpp" alt="">
+                </div>
+                <div class="flex">
+                    <div class="hp_text6">Для</div>
+                    <div class="hp_text7">предпринимателя</div>
+                </div>
+                <div class="hp_text8">Зарегистрируйся как предприниматель и заполни форму своей идеи. Мы поможеи найти специалистов и сообщим тебе о предстоящих грантах.</div>
+                <div class="hp_text8">Просто начни! </div>
+                <a href="/register" class="busin__reg_hp">Зарегистрироваться</a>
+            </div>
+
+            <div class="box__right">
+                <div class="circle_spec">
+                    <img src="img/spec_hp.svg" class="spec_hpp" alt="">
+                </div>
+                <div class="flex">
+                    <div class="hp_text6">Для</div>
+                    <div class="hp_text7_2">предпринимателя</div>
+                </div>
+                <div class="hp_text8">Зарегистрируйся как специалист, заполни своё резюме и участвуй в инновационных проектах!
+                </div>
+                <div class="hp_text8">*Для участия в коммерческих проектах нужно оформить самозанятого/ИП. </div>
+                <a href="/register" class="spec__reg_hp">Зарегистрироваться</a>
+            </div>
+
+            <div class="box__left">
+                <div class="circle_busin">
+                    <img src="img/inv_hp.svg" class="busin_hpp" alt="">
+                </div>
+                <div class="flex">
+                    <div class="hp_text6">Для</div>
+                    <div class="hp_text7_3">предпринимателя</div>
+                </div>
+                <div class="hp_text8">Зарегистрируйся как специалист, заполни своё резюме и участвуй в инновационных проектах!
+                </div>
+                <a href="/register" class="inv__reg_hp">Зарегистрироваться</a>
+            </div>
+        </div>
+
+        <div class="sec__2">
+            <h2 class="sec2_txt">Оцени проекты других!</h2>
+            <h3 class="sec2_2">Также ты можешь принять участие в их разработке!</h3>
+            <img src="img/listat.svg" class="svg_1" alt="">
+        </div>
+
+        <button class="but_idea">
+            <a href="/ideas" class="but_idea_txt">Перейти к каталогу идей</a>
+        </button>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer_wrapper">
+            <div class="footer_block">
+                <div class="nav">
+                    <a href="/" class="foot_nav">Главная страница</a>
+                    <a href="/ideas" class="foot_nav">Каталог идей</a>
+                    <a href="/account" class="foot_nav">Личный кабинет</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
 </body>
 
 </html>

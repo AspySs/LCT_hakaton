@@ -1,58 +1,139 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="eng">
 <head>
-    <title th:text="${title}"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твоя Идея</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div th:insert="blocks/header :: header"></div>
 
-<div class="container mt-3">
-    <h1 th:text="${title}"/>
-    <div class="alert alert-info mt-2">
-        <h3 th:text="'Username: ' + ${user.name}"/>
-        <br>
-        <h3 th:text="'User_info: ' + ${user.info}"/>
-        <br>
-        <h3 th:text="'User_status: ' + ${user.status}"/>
-        <br>
-        <h3 th:text="'birth_date: ' + ${user.birth_date}"/>
-        <br>
-        <h3 th:text="'country: ' + ${user.country}"/>
-        <br>
-        <h3 th:text="'city: ' + ${user.city}"/>
-        <br>
-        <h3 th:text="'grajd: ' + ${user.grajd}"/>
-        <br>
-        <h3 th:if="${user.gender}" th:text="'gender: male'"/>
-        <h3 th:if="${!user.gender}" th:text="'gender: female'"/>
-        <br>
-        <h3 th:text="'education: ' + ${user.education}"/>
-        <br>
-        <h3 th:text="'busyness: ' + ${user.busyness}"/>
-        <br>
-        <h3 th:text="'expWork: ' + ${user.expWork}"/>
-        <br>
-        <h3 th:text="'skill: ' + ${user.skill}"/>
-        <br>
-        <h3 th:text="'achievements: ' + ${user.achievements}"/>
-        <br>
-        <h3 th:text="'command: ' + ${user.command}"/>
-        <br>
-        <h3 th:text="'role: ' + ${user.role}"/>
-        <!--<h3  th:text="'Token: ' + ${token}"/>-->
-    </div>
-    <div class="col-md-auto">
-        <a th:href="'/user/update/' + ${user.login}" th:text="'Add information about me'" class="btn btn-warning"/>
-    </div>
 
-    <div class="col-md-auto">
-        <a th:href="'/ideas/add'" th:text="'Add new Idea'" class="btn btn-warning"/>
+
+<header class="header">
+    <div class="container">
+        <div class="header__wrapper">
+            <div class="header__block">
+                <a href="/" class="header__logo">
+                    <img src="img/Logo.svg" alt="">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <a href="/" class="nav_link">Главная страница</a>
+                <a href="/ideas" class="nav_link">Каталог идей</a>
+                <a href="/account" class="nav_link">Личный кабинет</a>
+            </nav>
+            <div class="header__block" th:if="not ${token}">
+                <nav class="login">
+                    <a href="/register" class="nav_login">Зарегистрироваться</a>
+                    <a href="/login" class="nav_login">Войти</a>
+                </nav>
+            </div>
+
+
+        </div>
     </div>
-</div>
+</header>
+
+
+
+<section class="your_page">
+    <div class="container">
+        <div class="flex">
+            <h1 class="yp_tx1">Личный кабинет</h1>
+
+        </div>
+        <div class="reg__content">
+            <div class="back__yp">
+                <div class="str_reg1">
+                    <p class="str_reg1_text12">Ваша роль*</p>
+                    <div class="str_reg1_2">
+                        <button class="spec">Специалист</button>
+                        <button class="busin">Предприниматель</button>
+                        <button class="inv">Инвестор</button>
+                    </div>
+                </div>
+
+                <div class="box__reg">
+                    <div class="flex3">
+                        <p class="text1">Фамилия*</p>
+                        <p class="text1">Пол*</p>
+                    </div>
+                    <div class="flex2">
+                        <h3 th:text="'Username: ' + ${user.name}"/>
+                        <h3 th:if="${user.gender}" th:text="'gender: male'"/>
+                        <h3 th:if="not ${user.gender}" th:text="'gender: female'"/>
+                    </div>
+                    <div class="flex3">
+                        <p class="text1">Дата рождения*</p>
+                        <p class="text1">Образование*</p>
+                    </div>
+                    <div class="flex2">
+                        <h3 th:text="'birth_date: ' + ${user.birth_date}"/>
+                        <h3 th:text="'education: ' + ${user.education}"/>
+                    </div>
+                    <div class="flex3">
+                        <p class="text1">Ваши навыки*</p>
+                        <p class="text1">Специальность</p>
+                        <p class="text1">Гражданство</p>
+                    </div>
+                    <div class="flex2">
+                        <h3 th:text="'skill: ' + ${user.skill}"/>
+                        <h3 th:text="'busyness: ' + ${user.busyness}"/>
+                        <h3 th:text="'grajd: ' + ${user.grajd}"/>
+                    </div>
+                    <div class="flex3">
+                        <p class="text1">Страна*</p>
+                        <p class="text1">Город*</p>
+                        <p class="text1">Опыт работы</p>
+                    </div>
+                    <div class="flex2">
+                        <h3 th:text="'country: ' + ${user.country}"/>
+                        <h3 th:text="'city: ' + ${user.city}"/>
+                        <h3 th:text="'expWork: ' + ${user.expWork}"/>
+                    </div>
+                    <div class="flex3">
+                        <p class="text1">Достижения</p>
+                        <p class="text1">Наличие команды*</p>
+                        <p class="text1">Роль в команде</p>
+                    </div>
+                    <div class="flex2">
+                        <h3 th:text="'achievements: ' + ${user.achievements}"/>
+                        <h3 th:text="'command: ' + ${user.command}"/>
+                        <h3 th:text="'role: ' + ${user.role}"/>
+                    </div>
+
+                    <button type="submit" class="but_idea" >
+                        <a th:href="'/user/update/' + ${user.login}">
+                            Изменить
+                        </a>
+                    </button>
+
+                    <button type="submit" class="but_idea" >
+                        <a th:href="'/ideas/add'" th:text="'Add new Idea'" class="btn btn-warning"/>
+                    </button>
+                </div>
+</section>
+
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer_wrapper">
+            <div class="footer_block">
+                <div class="nav">
+                    <a href="/" class="foot_nav">Главная страница</a>
+                    <a href="/ideas" class="foot_nav">Каталог идей</a>
+                    <a href="/account" class="foot_nav">Личный кабинет</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
 </body>
-
 </html>

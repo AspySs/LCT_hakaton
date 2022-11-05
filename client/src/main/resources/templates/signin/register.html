@@ -1,23 +1,89 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title th:text="${title}"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:text="${title}"/>Регистрация</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 </head>
 
+<link rel="stylesheet" th:href="@{/style.css}">
+</head>
 <body>
-<div th:insert="blocks/header :: header"></div>
 
-<div class="container mt-3">
-    <h1>Register</h1>
-    <form action="/register" method="post">
-        <input type="text" name="login" placeholder="Login" class="form-control" required><br>
-        <input type="text" name="password" placeholder="Password" class="form-control" required><br>
-        <button type="submit" class="btn btn-success">Create user</button>
-    </form>
+
+
+<header class="header">
+    <div class="container">
+        <div class="header__wrapper">
+            <div class="header__block">
+                <a href="/" class="header__logo">
+                    <img src="img/Logo.svg" alt="">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <a href="/" class="nav_link">Главная страница</a>
+                <a href="/ideas" class="nav_link">Каталог идей</a>
+                <a href="/account" class="nav_link">Личный кабинет</a>
+            </nav>
+            <div class="header__block" th:if="not ${token}">
+                <nav class="login">
+                    <a href="/register" class="nav_login">Зарегистрироваться</a>
+                    <a href="/login" class="nav_login">Войти</a>
+                </nav>
+            </div>
+
+
+        </div>
+    </div>
+</header>
+
+<section class="reg">
+    <div class="container">
+        <div class="reg__content">
+            <h1 class="reg__title">Регистрация</h1>
+            <div class="back__reg">
+                <div class="str_reg1">
+                    <p class="str_reg1_text1">Ваша роль*</p>
+                    <div class="str_reg1_2">
+                        <button class="spec">Специалист</button>
+                        <button class="busin">Предприниматель</button>
+                        <button class="inv">Инвестор</button>
+                    </div>
+                </div>
+
+                <div class="box__reg">
+                    <div class="container mt-3">
+                        <h1>Register</h1>
+                        <form action="/register" method="post">
+                            <input type="text" name="login" placeholder="Login" class="form-control" required><br>
+                            <input type="text" name="password" placeholder="Password" class="form-control" required><br>
+                            <button type="submit" class="btn btn-success">Create user</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer_wrapper">
+            <div class="footer_block">
+                <div class="nav">
+                    <a href="/" class="foot_nav">Главная страница</a>
+                    <a href="/ideas" class="foot_nav">Каталог идей</a>
+                    <a href="/account" class="foot_nav">Личный кабинет</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
 </div>
-</body>
 
+</body>
 </html>

@@ -24,7 +24,7 @@ public class RegisterController {
         String json = "{\n" +
                 "\"login\":" + "\"" + login + "\",\n" +
                 "\"password\":" + "\"" + password + "\",\n" +
-                "\"roles\":" + "[\"ROLE_USER\"]\n" +
+                "\"roles\":" + "[\"ROLE_USER\"]" +"\n" +
                 "}";
 
         authRequest(url, json, HttpMethod.POST, MediaType.APPLICATION_JSON);
